@@ -101,23 +101,29 @@ class GuestBook:
  
                 
                 #ask if they are interested in promotional emails
+                label = Label(window, text = "Interested in promotional emails?", width = 24, justify = LEFT).grid(row = 4, column = 1, columnspan = 6)
+         
                 #ask how they heard about us
+                label = Label(window, text = "How did you hear about us?", width = 20, justify = CENTER).grid(row = 9, column = 1, columnspan = 8)
+                self.reply = StringVar()
+                reply = Entry(window, textvariable = self.reply, justify = LEFT).grid(row = 10, rowspan = 2, column = 1, columnspan = 8, sticky = W+E)
                 
+
                 
                 ########################################################################################################################
 
                 #Create the label for the comments
-                label = Label(window, text = "Comments", width = 10, justify = CENTER).grid(row = 4, column = 1, columnspan = 8)
+                label = Label(window, text = "Comments", width = 10, justify = CENTER).grid(row = 12, column = 1, columnspan = 8)
                 #entry box for guests zip code
                 self.comments = StringVar()
-                comments = Entry(window, textvariable = self.comments, justify = LEFT).grid(row = 5, rowspan = 2, column = 1, columnspan = 8,  sticky = W+E)
+                comments = Entry(window, textvariable = self.comments, justify = LEFT).grid(row = 13, rowspan = 2, column = 1, columnspan = 8,  sticky = W+E)
                 
                 
                 #insert the image           
                 #logo.grid(row = 1, column = 2, columnspan = 2, rowspan = 2, sticky = W+E+N+S, padx=1, pady =1)
 
                 #Button(window, text = "Save", command = self.Save) is what it should look like when commands are built
-                button = Button(window, text = "Save", command = self.SaveButton).grid(row = 8, column = 1, columnspan = 8)
+                button = Button(window, text = "Save", command = self.SaveButton).grid(row = 15, column = 1, columnspan = 8)
                 
 
                 window.mainloop()
