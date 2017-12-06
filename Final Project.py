@@ -99,25 +99,38 @@ class GuestBook:
                           '1921','1920','1919','1918','1917','1916','1915','1914','1913','1912','1911','1910']
                 birthYear = Combobox(window, width='4', height='5', textvariable=self.birthYear, values=birthY).grid(row = 3, column = 5, columnspan = 1, sticky = W+E)
  
-                
+
+                #Create a label for the guests email
+                label = Label(window, text = "Email address", width = 10, justify = LEFT).grid(row = 5, column = 1, columnspan = 3)
+                #Create an entry box the for the guests email
+                self.email = StringVar()
+                email = Entry(window, textvariable = self.email, justify = LEFT).grid(row = 5, column = 3, columnspan = 5, sticky = W+E)
                 #ask if they are interested in promotional emails
+                label = Label(window, text = "Interested in promotional emails?", width = 24, justify = LEFT).grid(row = 8, column = 1, columnspan = 6)
+                #provide a yes/no checkbox for their choice
+                var1 = IntVar()
+                Checkbutton(window, text="Yes", variable=var1).grid(row=8, column = 5,columnspan = 6, sticky=W)
+                var2 = IntVar()
+                Checkbutton(window, text="No", variable=var2).grid(row=8,column = 6,columnspan = 5, sticky=W)
+             
+                
                 #ask how they heard about us
+                label = Label(window, text = "How did you hear about us?", width = 20, justify = LEFT).grid(row = 10, column = 1, columnspan = 2)
+                self.reply = StringVar()
+                reply = Entry(window, textvariable = self.reply, justify = LEFT).grid(row = 10, rowspan = 2, column = 3, columnspan = 8, sticky = W+E)
                 
                 
                 ########################################################################################################################
 
                 #Create the label for the comments
-                label = Label(window, text = "Comments", width = 10, justify = CENTER).grid(row = 4, column = 1, columnspan = 8)
-                #entry box for guests zip code
+                label = Label(window, text = "Comments", width = 10, justify = CENTER).grid(row = 13, column = 1, columnspan = 8)
+                #entry box for guests comments
                 self.comments = StringVar()
-                comments = Entry(window, textvariable = self.comments, justify = LEFT).grid(row = 5, rowspan = 2, column = 1, columnspan = 8,  sticky = W+E)
+                comments = Entry(window, textvariable = self.comments, justify = LEFT).grid(row = 15, rowspan = 2, column = 1, columnspan = 8, sticky = W+E)
                 
                 
-                #insert the image           
-                #logo.grid(row = 1, column = 2, columnspan = 2, rowspan = 2, sticky = W+E+N+S, padx=1, pady =1)
-
                 #Button(window, text = "Save", command = self.Save) is what it should look like when commands are built
-                button = Button(window, text = "Save", command = self.SaveButton).grid(row = 8, column = 1, columnspan = 8)
+                button = Button(window, text = "Save", command = self.SaveButton).grid(row = 20, column = 1, columnspan = 8)
                 
 
                 window.mainloop()
@@ -158,6 +171,10 @@ class GuestBook:
                         self.birthYear.set('')                        
                 if self.comments != "":
                         self.comments.set('')
+                if self.email != "":
+                        self.email.set('')
+                if self.reply != "":
+                        self.reply.set('')
 
 
 
