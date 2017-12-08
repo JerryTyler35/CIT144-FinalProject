@@ -158,7 +158,8 @@ class GuestBook:
                       self.zipcode.get(),self.birthDay.get(), self.birthMonth.get(), self.birthYear.get(), self.mail.get(),self.reply.get(), self.comments.get())
                 #This creates a list of all the inputs
                 data = [str(self.title.get()), str(self.firstname.get()),str(self.middle.get()), str(self.lastname.get()), str(self.street.get()), str(self.city.get()), str(self.state.get()),
-                      str(self.zipcode.get()), str(self.birthDay.get()), str(self.birthMonth.get()), str(self.birthYear.get()), str(self.mail.get()), str(self.reply.get()), str(self.comments.get())]
+                      str(self.zipcode.get()), str(self.birthDay.get()), str(self.birthMonth.get()), str(self.birthYear.get()), str(self.mail.get()), str(self.reply.get()), str(self.comments.get()),
+                      str(self.processEmails.get())]
                 #This exports that list to a .csv seperating values by commas, writing exactly the values entered
                 with open('GuestLog.csv', 'a') as f:
                         writer = csv.writer(f, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
